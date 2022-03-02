@@ -8,10 +8,10 @@ route.post("/mail", (req, res) => {
         from : "test@gmail.com",
         to : mail.to,
         subject : mail.subject,
-        html : mail.html,
     };
 
     transporter.sendMail(mailData, (err, info) => {
+        console.log(mailData);
         if(err) {
             res.status(500).json({
                 message : "Error sending mail",
@@ -27,3 +27,4 @@ route.post("/mail", (req, res) => {
         }
     });
 });
+module.exports = route;
